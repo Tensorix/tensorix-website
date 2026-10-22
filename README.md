@@ -25,7 +25,7 @@ bun run deploy
 
 Wrangler requires Node 22+ on PATH; invoke it via Bun. The site itself uses Bun for development and Cloudflare Workers for production.
 
-`wrangler.jsonc` binds `www.tensorix.org` and `tensorix.org`. The apex returns a permanent HTTP 308 redirect to the www host, preserving path and query. Preview workers.dev hosts serve the same site.
+`wrangler.jsonc` installs exact Worker routes for `www.tensorix.org/*` and `tensorix.org/*` on the existing proxied DNS records. It does not replace those records. The apex returns a permanent HTTP 308 redirect to the www host, preserving path and query. Preview workers.dev hosts serve the same site.
 
 ### Wildcard routing
 
@@ -48,4 +48,8 @@ Pushes to main and manual runs check static assets and redirect behavior. Deploy
 
 ## Current publication status
 
-The initial implementation passes local validation and Wrangler dry-run packaging. Public deployment and wildcard DNS/routing setup require restored Cloudflare authentication. Until deployment is verified, the custom-domain URLs above are targets, not evidence of a live deployment.
+Published on 2026-10-23 (Asia/Shanghai). Verified: www homepage returns 200 and matches repository source; apex returns 308 to HTTPS www with path/query preserved; Metahub product site continues to return 200.
+
+Wildcard DNS currently resolves directly to an existing server (DNS only). Wrangler OAuth lacks DNS permissions, so wildcard DNS/proxy changes and catch-all routing remain pending. No wildcard route has been installed.
+
+GitHub Actions validation passes. Automatic deployment remains skipped until repository deployment secrets are configured. Local authenticated Wrangler deployment is available.
