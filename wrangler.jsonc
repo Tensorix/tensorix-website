@@ -1,0 +1,12 @@
+{
+  "name": "tensorix-website",
+  "main": "worker.ts",
+  "account_id": "35df29b3356c5a027687485d5079ec53",
+  "compatibility_date": "2026-10-22",
+  "assets": { "directory": "./public", "binding": "ASSETS", "run_worker_first": true, "not_found_handling": "404-page" },
+  "routes": [
+    { "pattern": "www.tensorix.org", "custom_domain": true },
+    { "pattern": "tensorix.org", "custom_domain": true }
+  ],
+  "workers_dev": true
+}

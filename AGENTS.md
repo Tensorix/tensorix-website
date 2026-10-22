@@ -1,0 +1,1 @@
+Use Bun for scripts, dependencies, tests and local serving. Keep this site separate from metahub-core. Read PRODUCT.md and DESIGN.md before edits. Do not publish team-size/founder details or information from private repositories. Preserve existing product subdomains when configuring redirects.
